@@ -1,0 +1,38 @@
+[
+    {
+        "title": "The void",
+        "artist": "Nunoke123",
+        "file": "songs/void.mp3",
+        "link": "https://www.youtube.com/"
+    },
+    {
+        "title": "Daniel",
+        "artist": "Ashell",
+        "file": "songs/Daniel.m4a",
+        "link": "https://www.youtube.com/"
+    },
+    {
+        "title": "Collin",
+        "artist": "Ashell",
+        "file": "songs/Collin.m4a",
+        "link": "https://www.youtube.com/"
+    },
+    {
+        "title": "Alice",
+        "artist": "Ashell",
+        "file": "songs/Alice.m4a",
+        "link": "https://www.youtube.com/"
+    },
+    {
+        "title": "History class",
+        "artist": "Ashell",
+        "file": "songs/History.m4a",
+        "link": "https://www.youtube.com/"
+    },
+    {
+        "title": "The peculiar school",
+        "artist": "Ashell",
+        "file": "songs/School.m4a",
+        "link": "https://www.youtube.com/"
+    }
+]

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundtrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="player">
+        <img id="songImage" src="">
+        <h1 id="songTitle"></h1>
+        <p id="songArtist"></p>
+        <div class="buttons">
+            <button id="loopBtn" title="Toggle loop">🔁</button>
+            <button id="shuffleBtn" title="Toggle shuffle">🔀</button>
+            <button id="prevBtn" title="Previous song">⬅️</button>
+            <button id="playToggle" title="Play/Pause">▶️</button>
+            <button id="nextBtn" title="Next song">➡️</button>
+            <button id="downloadBtn" title="Download song">⬇️</button>
+            <button id="linkBtn" title="Find song on YouTube">🌐</button>
+        </div>
+        <div class="progress">
+            <p id="currentTime">0:00</p>
+            <input type="range" id="progress" value="0" class="slider">
+            <p id="totalTime">0:00</p>
+        </div>
+    </section>
+    <section class="playlist">
+        <ul id="playlist"></ul>
+    </section>
+    <audio id="player" src=""></audio>
+    <script src="script.js"></script>
+</body>
+
+</html>
