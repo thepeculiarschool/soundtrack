@@ -1,38 +1,65 @@
 [
     {
-        "title": "The void",
+        "title": "The Void",
         "artist": "Nunoke123",
-        "file": "songs/void.mp3",
-        "link": "https://www.youtube.com/"
+        "file": "songs/Void.mp3",
+        "link": "https://www.youtube.com/",
+        "description": "The eerie silence before anything begins."
     },
     {
         "title": "Daniel",
         "artist": "Ashell",
         "file": "songs/Daniel.m4a",
-        "link": "https://www.youtube.com/"
+        "link": "https://www.youtube.com/",
+        "description": "Daniel's theme. Plays during his narration in chapter 1."
     },
     {
         "title": "Collin",
         "artist": "Ashell",
         "file": "songs/Collin.m4a",
-        "link": "https://www.youtube.com/"
+        "link": "https://www.youtube.com/",
+        "description": "Collin's theme. Energetic and a little chaotic."
+    },
+    {
+        "title": "Collin B",
+        "artist": "Ashell",
+        "file": "songs/Collin B.m4a",
+        "link": "https://www.youtube.com/",
+        "description": "An alternate version of Collin's theme."
     },
     {
         "title": "Alice",
         "artist": "Ashell",
         "file": "songs/Alice.m4a",
-        "link": "https://www.youtube.com/"
+        "link": "https://www.youtube.com/",
+        "description": "Alice's theme. Plays when she makes her entrance."
     },
     {
-        "title": "History class",
+        "title": "History Class",
         "artist": "Ashell",
         "file": "songs/History.m4a",
-        "link": "https://www.youtube.com/"
+        "link": "https://www.youtube.com/",
+        "description": "The dread of Mrs. Kushim's class captured in music."
     },
     {
-        "title": "The peculiar school",
+        "title": "The Peculiar School",
         "artist": "Ashell",
         "file": "songs/School.m4a",
-        "link": "https://www.youtube.com/"
+        "link": "https://www.youtube.com/",
+        "description": "The main theme. Something is off about this school..."
+    },
+    {
+        "title": "The Doorway",
+        "artist": "Nunoke123",
+        "file": "songs/Doorway.mp3",
+        "link": "https://www.youtube.com/",
+        "description": "An ominously dark doorway appears. Something stirs."
+    },
+    {
+        "title": "The Hallway",
+        "artist": "Nunoke123",
+        "file": "songs/Hallway.mp3",
+        "link": "https://www.youtube.com/",
+        "description": "The floor opens. Things go downhill fast."
     }
 ]

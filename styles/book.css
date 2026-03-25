@@ -1,0 +1,390 @@
+/* ── Fonts ──────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Caveat';
+  src: url('../fonts/Caveat-VariableFont_wght.ttf') format('truetype');
+}
+
+/* ── Reset / Base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --bg:          #200f7d;
+  --card-bg:     transparent;
+  --card-border: #6b5b00;
+  --text:        #1a0e00;
+  --text-dim:    #5a4a30;
+  --accent:      purple;
+  --btn-bg:      #200f7d;
+  --btn-text:    #e6e6e6;
+  --btn-border:  #3a2a80;
+  --btn-on-bg:   limegreen;
+  --btn-on-text: #000;
+  --active-text: gold;
+  --active-weight: bold;
+  --nav-bg:      #0d0b40;
+  --nav-text:    #e6e6e6;
+  --nav-border:  rgba(63,56,255,0.35);
+  --progress-thumb: gold;
+  --progress-track: #c8b89a;
+}
+
+body {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+/* ── Navbar ─────────────────────────────────────────────────── */
+.navbar {
+  width: 100%;
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(19,14,152,0.4);
+}
+
+.nav-home {
+  color: orchid;
+  text-decoration: none;
+  font-size: 1.1em;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.nav-home:hover { color: #fff; }
+
+.nav-title {
+  color: gold;
+  font-size: 1.25em;
+  font-weight: bold;
+  text-shadow: 0 0 10px goldenrod;
+  flex: 1;
+  text-align: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Theme picker ───────────────────────────────────────────── */
+.theme-picker {
+  position: relative;
+}
+
+.theme-toggle {
+  background: rgba(63,56,255,0.2);
+  border: 1px solid rgba(63,56,255,0.4);
+  border-radius: 6px;
+  color: #e6e6e6;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 0.95em;
+  font-family: 'Caveat', cursive;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.theme-toggle:hover { background: rgba(63,56,255,0.35); }
+
+.theme-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  background: #0d0b40;
+  border: 1px solid rgba(63,56,255,0.5);
+  border-radius: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  min-width: 140px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  z-index: 200;
+}
+.theme-dropdown.open { display: block; }
+
+.theme-dropdown li {
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #e6e6e6;
+  font-family: 'Caveat', cursive;
+  font-size: 1.05em;
+  transition: background 0.15s;
+}
+.theme-dropdown li:hover { background: rgba(63,56,255,0.25); }
+.theme-dropdown li.active-theme {
+  background: rgba(63,56,255,0.4);
+  color: gold;
+}
+
+/* ── Player card ────────────────────────────────────────────── */
+.player {
+  background-image: url('../images/oldpaper.png');
+  background-position: center;
+  background-size: cover;
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  width: min(95vw, 480px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+#songTitle {
+  margin: 0;
+  font-size: 1.8em;
+  color: #2a1800;
+}
+
+#songArtist {
+  margin: 0;
+  font-size: 1.1em;
+  color: var(--text-dim);
+}
+
+#songDescription {
+  margin: 0;
+  font-size: 1em;
+  color: var(--text-dim);
+  font-style: italic;
+  max-width: 360px;
+  text-align: center;
+  min-height: 1.4em;
+}
+
+/* ── Progress ───────────────────────────────────────────────── */
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.progress span {
+  font-size: 0.95em;
+  color: var(--text-dim);
+  min-width: 34px;
+}
+
+.slider {
+  flex: 1;
+  height: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--progress-track);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--progress-thumb);
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--progress-thumb);
+  cursor: pointer;
+  border: none;
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+button {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--btn-border);
+  border-radius: 7px;
+  padding: 7px 11px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, border-color 0.2s;
+  line-height: 1;
+}
+button:hover {
+  background: rgba(63,56,255,0.25);
+  border-color: #9ba7ff;
+  transform: translateY(-1px);
+}
+
+button.on {
+  background: var(--btn-on-bg);
+  color: var(--btn-on-text);
+  border-color: var(--btn-on-bg);
+}
+
+/* Override for theme toggle button (styled separately) */
+.theme-toggle { all: unset; cursor: pointer; }
+.theme-toggle {
+  background: rgba(63,56,255,0.2);
+  border: 1px solid rgba(63,56,255,0.4);
+  border-radius: 6px;
+  color: #e6e6e6;
+  padding: 5px 10px;
+  font-size: 0.95em;
+  font-family: 'Caveat', cursive;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+/* ── Playlist ───────────────────────────────────────────────── */
+.playlist {
+  background-image: url('../images/oldpaper.png');
+  background-position: center;
+  background-size: cover;
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  width: min(95vw, 480px);
+  color: var(--text);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* ── Search ─────────────────────────────────────────────────── */
+.search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+#search {
+  flex: 1;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: rgba(255,255,255,0.55);
+  font-family: 'Caveat', cursive;
+  font-size: 1.05em;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+#search:focus {
+  border-color: purple;
+  background: rgba(255,255,255,0.75);
+}
+#search::placeholder { color: #9a8060; }
+
+.search-clear {
+  background: rgba(0,0,0,0.15) !important;
+  border-color: var(--card-border) !important;
+  padding: 6px 9px !important;
+  font-size: 0.95em !important;
+  color: var(--text) !important;
+}
+.search-clear:hover {
+  background: rgba(0,0,0,0.3) !important;
+}
+
+/* ── Playlist list ──────────────────────────────────────────── */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+ul li {
+  padding: 8px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  transition: background 0.15s;
+}
+ul li:hover { background: rgba(100,50,200,0.12); }
+
+ul li.active {
+  background: rgba(100,50,200,0.18);
+  font-weight: var(--active-weight);
+}
+
+.pl-title {
+  color: var(--active-text);
+  font-size: 1.1em;
+}
+ul li:not(.active) .pl-title { color: var(--text); }
+
+.pl-artist {
+  color: var(--text-dim);
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+#noResults {
+  text-align: center;
+  color: var(--text-dim);
+  font-style: italic;
+  padding: 8px 0;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 500px) {
+  .nav-title { font-size: 1em; }
+  .player, .playlist { width: 95vw; padding: 14px 14px; }
+  .buttons { gap: 5px; }
+  button { padding: 6px 9px; font-size: 1.05em; }
+}
+
+/* ── Dyslexia toggle button ─────────────────────────────────── */
+.dyslexia-toggle {
+  background: rgba(63,56,255,0.15);
+  border: 1px solid rgba(63,56,255,0.4);
+  border-radius: 6px;
+  color: #e6e6e6;
+  cursor: pointer;
+  padding: 4px 10px;
+  font-size: 0.9em;
+  font-family: 'Caveat', cursive;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.dyslexia-toggle:hover { background: rgba(63,56,255,0.3); }
+.dyslexia-toggle.on {
+  background: rgba(63,56,255,0.5);
+  border-color: var(--accent-blue-soft, #9ba7ff);
+  color: #fff;
+}
+
+/* ── Dyslexia mode overrides ────────────────────────────────── */
+body.dyslexia,
+body.dyslexia * {
+  font-family: 'Comic Neue', 'ComicNeue', 'Comic Sans MS', cursive !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.12em !important;
+  line-height: 1.7 !important;
+}
+body.dyslexia p, body.dyslexia li { text-align: left !important; }

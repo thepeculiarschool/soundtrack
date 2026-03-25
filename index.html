@@ -2,37 +2,68 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soundtrack</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soundtrack – The Peculiar School</title>
+  <link id="stylesheet" rel="stylesheet" href="styles/book.css">
 </head>
 
 <body>
-    <section class="player">
-        <img id="songImage" src="">
-        <h1 id="songTitle"></h1>
-        <p id="songArtist"></p>
-        <div class="buttons">
-            <button id="loopBtn" title="Toggle loop">🔁</button>
-            <button id="shuffleBtn" title="Toggle shuffle">🔀</button>
-            <button id="prevBtn" title="Previous song">⬅️</button>
-            <button id="playToggle" title="Play/Pause">▶️</button>
-            <button id="nextBtn" title="Next song">➡️</button>
-            <button id="downloadBtn" title="Download song">⬇️</button>
-            <button id="linkBtn" title="Find song on YouTube">🌐</button>
-        </div>
-        <div class="progress">
-            <p id="currentTime">0:00</p>
-            <input type="range" id="progress" value="0" class="slider">
-            <p id="totalTime">0:00</p>
-        </div>
-    </section>
-    <section class="playlist">
-        <ul id="playlist"></ul>
-    </section>
-    <audio id="player" src=""></audio>
-    <script src="script.js"></script>
+
+  <!-- ── Navbar ─────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <a class="nav-home" href="../index.html">← Homepage</a>
+    <span class="nav-title">Soundtrack</span>
+    <div class="nav-right">
+
+      <!-- Theme picker -->
+      <div class="theme-picker" id="themePicker">
+        <button class="theme-toggle" id="themeToggle" title="Change theme">🎨 Theme</button>
+        <ul class="theme-dropdown" id="themeDropdown">
+          <li data-theme="book">📖 Book</li>
+          <li data-theme="void">🌑 Void</li>
+          <li data-theme="magic">✨ Magic</li>
+          <button class="dyslexia-toggle" id="dyslexiaToggle" title="Enable dyslexia-friendly font">🔤 Dyslexia</button>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Player ─────────────────────────────────────────────── -->
+  <section class="player">
+    <h1 id="songTitle">—</h1>
+    <p id="songArtist"></p>
+    <p id="songDescription"></p>
+
+    <div class="progress">
+      <span id="currentTime">0:00</span>
+      <input type="range" id="progress" value="0" min="0" max="100" class="slider">
+      <span id="totalTime">0:00</span>
+    </div>
+
+    <div class="buttons">
+      <button id="loopBtn"     title="Toggle loop">🔁</button>
+      <button id="shuffleBtn"  title="Toggle shuffle">🔀</button>
+      <button id="prevBtn"     title="Previous">⬅️</button>
+      <button id="playToggle"  title="Play / Pause">▶️</button>
+      <button id="nextBtn"     title="Next">➡️</button>
+      <button id="downloadBtn" title="Download">⬇️</button>
+      <button id="linkBtn"     title="Find on YouTube">🌐</button>
+    </div>
+  </section>
+
+  <!-- ── Playlist ───────────────────────────────────────────── -->
+  <section class="playlist">
+    <div class="search-wrap">
+      <input id="search" type="text" placeholder="🔍 Search songs…" autocomplete="off">
+      <button id="searchClear" class="search-clear" title="Clear search" hidden>✕</button>
+    </div>
+    <ul id="playlist"></ul>
+    <p id="noResults" hidden>No songs match your search.</p>
+  </section>
+
+  <audio id="player" src=""></audio>
+  <script src="script.js"></script>
 </body>
 
 </html>

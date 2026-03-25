@@ -1,0 +1,212 @@
+/* Magic theme — upgraded version of the original purple/magenta style */
+@font-face {
+  font-family: 'Caveat';
+  src: url('../fonts/Caveat-VariableFont_wght.ttf') format('truetype');
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  background-color: purple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 40px;
+  color: white;
+}
+
+/* ── Navbar ─────────────────────────────────────────────────── */
+.navbar {
+  width: 100%;
+  background-color: purple;
+  border-bottom: 2px solid plum;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-home {
+  color: plum;
+  text-decoration: none;
+  font-size: 1.1em;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.nav-home:hover { color: #fff; }
+
+.nav-title {
+  color: gold;
+  font-size: 1.25em;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+
+.nav-right { display: flex; align-items: center; gap: 10px; flex-direction: column; align-items: flex-end; }
+
+/* ── Theme picker ───────────────────────────────────────────── */
+.theme-picker { position: relative; }
+
+.theme-toggle {
+  background: plum;
+  border: 2px solid magenta;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 0.95em;
+  font-family: 'Caveat', cursive;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.theme-toggle:hover { background: magenta; }
+
+.theme-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  background: #4a0070;
+  border: 2px solid plum;
+  border-radius: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  min-width: 140px;
+  z-index: 200;
+}
+.theme-dropdown.open { display: block; }
+.theme-dropdown li {
+  padding: 8px 12px; border-radius: 5px; cursor: pointer;
+  color: plum; font-family: 'Caveat', cursive; font-size: 1.05em; transition: background 0.15s;
+}
+.theme-dropdown li:hover { background: rgba(255,0,255,0.2); }
+.theme-dropdown li.active-theme { background: rgba(255,0,255,0.3); color: gold; }
+
+/* Dyslexia button in nav-right */
+.dyslexia-toggle {
+  background: plum;
+  border: 2px solid magenta;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px 10px;
+  font-size: 0.9em;
+  font-family: 'Caveat', cursive;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.dyslexia-toggle:hover { background: magenta; }
+.dyslexia-toggle.on { background: magenta; color: #fff; border-color: gold; }
+
+/* ── Cards ──────────────────────────────────────────────────── */
+.player {
+  background-color: magenta;
+  border: 3px solid plum;
+  border-radius: 10px;
+  padding: 20px 24px;
+  width: min(95vw, 480px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+#songTitle { margin: 0; font-size: 1.8em; color: gold; }
+#songArtist { margin: 0; font-size: 1.1em; color: white; }
+#songDescription { margin: 0; font-size: 1em; color: white; font-style: italic; max-width: 360px; text-align: center; min-height: 1.4em; }
+
+.progress { display: flex; align-items: center; gap: 8px; width: 100%; }
+.progress span { font-size: 0.95em; color: white; min-width: 34px; }
+
+.slider {
+  flex: 1; height: 5px; -webkit-appearance: none; appearance: none;
+  background: #7a007a; border-radius: 3px; outline: none; cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 14px; height: 14px;
+  border-radius: 50%; background: gold; cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: gold; cursor: pointer; border: none;
+}
+
+.buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+
+button {
+  background: plum;
+  color: #fff;
+  border: 1px solid magenta;
+  border-radius: 7px;
+  padding: 7px 11px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  line-height: 1;
+}
+button:hover { background: magenta; transform: translateY(-1px); }
+button.on { background: lime; color: #000; border-color: lime; }
+
+.playlist {
+  background-color: magenta;
+  border: 3px solid plum;
+  border-radius: 10px;
+  padding: 16px 20px;
+  width: min(95vw, 480px);
+  color: white;
+}
+
+.search-wrap { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+
+#search {
+  flex: 1; padding: 7px 12px; border-radius: 8px;
+  border: 2px solid plum; background: #7a007a;
+  font-family: 'Caveat', cursive; font-size: 1.05em;
+  color: white; outline: none; transition: border-color 0.2s;
+}
+#search:focus { border-color: gold; }
+#search::placeholder { color: white; }
+
+.search-clear {
+  background: plum !important; border-color: magenta !important;
+  padding: 6px 9px !important; font-size: 0.95em !important; color: white !important;
+}
+
+ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+ul li {
+  padding: 8px 10px; border-radius: 7px; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 8px; transition: background 0.15s;
+}
+ul li:hover { background: rgba(255,255,255,0.15); }
+ul li.active { background: rgba(255,255,255,0.2); font-weight: bold; }
+.pl-title { color: gold; font-size: 1.1em; }
+ul li:not(.active) .pl-title { color: white; }
+.pl-artist { color: white; font-size: 0.9em; white-space: nowrap; }
+#noResults { text-align: center; color: plum; font-style: italic; padding: 8px 0; }
+
+/* ── Dyslexia mode overrides ────────────────────────────────── */
+body.dyslexia,
+body.dyslexia * {
+  font-family: 'Comic Neue', 'ComicNeue', 'Comic Sans MS', cursive !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.12em !important;
+  line-height: 1.7 !important;
+}
+body.dyslexia p, body.dyslexia li { text-align: left !important; }
+
+@media (max-width: 500px) {
+  .nav-title { font-size: 1em; }
+  .player, .playlist { width: 95vw; padding: 14px; }
+  button { padding: 6px 9px; font-size: 1.05em; }
+}

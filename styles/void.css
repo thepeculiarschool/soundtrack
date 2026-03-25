@@ -1,0 +1,239 @@
+@font-face {
+  font-family: 'Caveat';
+  src: url('../fonts/Caveat-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Magic';
+  src: url('../fonts/MagicSchoolOne.ttf') format('truetype');
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --bg:           #000;
+  --card-bg:      #0a0a0a;
+  --card-border:  limegreen;
+  --text:         #e6e6e6;
+  --text-dim:     #7aff7a;
+  --accent:       limegreen;
+  --btn-bg:       #001a00;
+  --btn-text:     limegreen;
+  --btn-border:   #004400;
+  --btn-on-bg:    limegreen;
+  --btn-on-text:  #000;
+  --active-text:  limegreen;
+  --active-weight: bold;
+  --nav-bg:       #050505;
+  --nav-text:     limegreen;
+  --nav-border:   #003300;
+  --progress-thumb: limegreen;
+  --progress-track: #003300;
+}
+
+body {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.navbar {
+  width: 100%;
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 16px rgba(0,255,0,0.1);
+}
+
+.nav-home {
+  color: limegreen;
+  text-decoration: none;
+  font-size: 1.1em;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.nav-home:hover { color: #fff; }
+
+.nav-title {
+  color: limegreen;
+  font-size: 1.25em;
+  font-weight: bold;
+  text-shadow: 0 0 12px limegreen;
+  flex: 1;
+  text-align: center;
+  font-family: 'Magic', cursive;
+}
+
+.nav-right { display: flex; align-items: center; gap: 10px; }
+
+.theme-picker { position: relative; }
+
+.theme-toggle {
+  background: #001a00;
+  border: 1px solid #004400;
+  border-radius: 6px;
+  color: limegreen;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 0.95em;
+  font-family: 'Caveat', cursive;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.theme-toggle:hover { background: #003300; }
+
+.theme-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  background: #050505;
+  border: 1px solid #004400;
+  border-radius: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  min-width: 140px;
+  box-shadow: 0 4px 16px rgba(0,255,0,0.15);
+  z-index: 200;
+}
+.theme-dropdown.open { display: block; }
+.theme-dropdown li {
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: limegreen;
+  font-family: 'Caveat', cursive;
+  font-size: 1.05em;
+  transition: background 0.15s;
+}
+.theme-dropdown li:hover { background: #002200; }
+.theme-dropdown li.active-theme { background: #003300; color: #fff; }
+
+.player {
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  width: min(95vw, 480px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  box-shadow: 0 0 24px rgba(0,255,0,0.12);
+}
+
+#songTitle { margin: 0; font-size: 1.8em; color: limegreen; text-shadow: 0 0 8px limegreen; }
+#songArtist { margin: 0; font-size: 1.1em; color: #7aff7a; }
+#songDescription { margin: 0; font-size: 1em; color: #5acc5a; font-style: italic; max-width: 360px; text-align: center; min-height: 1.4em; }
+
+.progress { display: flex; align-items: center; gap: 8px; width: 100%; }
+.progress span { font-size: 0.95em; color: #5acc5a; min-width: 34px; }
+
+.slider {
+  flex: 1; height: 4px; -webkit-appearance: none; appearance: none;
+  background: var(--progress-track); border-radius: 3px; outline: none; cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 14px; height: 14px;
+  border-radius: 50%; background: var(--progress-thumb); cursor: pointer;
+  box-shadow: 0 0 6px limegreen;
+}
+.slider::-moz-range-thumb {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--progress-thumb); cursor: pointer; border: none;
+}
+
+.buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+
+button {
+  background: var(--btn-bg); color: var(--btn-text);
+  border: 1px solid var(--btn-border); border-radius: 7px;
+  padding: 7px 11px; font-size: 1.2em; cursor: pointer;
+  transition: background 0.2s, transform 0.15s; line-height: 1;
+}
+button:hover { background: #003300; border-color: limegreen; transform: translateY(-1px); }
+button.on { background: limegreen; color: #000; border-color: limegreen; box-shadow: 0 0 8px limegreen; }
+
+.playlist {
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  width: min(95vw, 480px);
+  color: var(--text);
+  box-shadow: 0 0 24px rgba(0,255,0,0.08);
+}
+
+.search-wrap { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+
+#search {
+  flex: 1; padding: 7px 12px; border-radius: 8px;
+  border: 1px solid #004400; background: #0d0d0d;
+  font-family: 'Caveat', cursive; font-size: 1.05em;
+  color: limegreen; outline: none; transition: border-color 0.2s;
+}
+#search:focus { border-color: limegreen; box-shadow: 0 0 6px rgba(0,255,0,0.3); }
+#search::placeholder { color: #3a6b3a; }
+
+.search-clear {
+  background: #001a00 !important; border-color: #004400 !important;
+  padding: 6px 9px !important; font-size: 0.95em !important; color: limegreen !important;
+}
+
+ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+ul li {
+  padding: 8px 10px; border-radius: 7px; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 8px; transition: background 0.15s;
+}
+ul li:hover { background: #001a00; }
+ul li.active { background: #002a00; font-weight: bold; }
+.pl-title { color: limegreen; font-size: 1.1em; }
+ul li:not(.active) .pl-title { color: #b0ffb0; }
+.pl-artist { color: #5acc5a; font-size: 0.9em; white-space: nowrap; }
+#noResults { text-align: center; color: #5acc5a; font-style: italic; padding: 8px 0; }
+
+@media (max-width: 500px) {
+  .nav-title { font-size: 1em; }
+  .player, .playlist { width: 95vw; padding: 14px; }
+  button { padding: 6px 9px; font-size: 1.05em; }
+}
+
+/* ── Dyslexia toggle button ─────────────────────────────────── */
+.dyslexia-toggle {
+  background: #001a00;
+  border: 1px solid #004400;
+  border-radius: 6px;
+  color: limegreen;
+  cursor: pointer;
+  padding: 4px 10px;
+  font-size: 0.9em;
+  font-family: 'Caveat', cursive;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.dyslexia-toggle:hover { background: #003300; }
+.dyslexia-toggle.on { background: #003300; border-color: limegreen; color: #fff; box-shadow: 0 0 6px limegreen; }
+
+/* ── Dyslexia mode overrides ────────────────────────────────── */
+body.dyslexia,
+body.dyslexia * {
+  font-family: 'Comic Neue', 'ComicNeue', 'Comic Sans MS', cursive !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.12em !important;
+  line-height: 1.7 !important;
+}
+body.dyslexia p, body.dyslexia li { text-align: left !important; }
